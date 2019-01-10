@@ -1,16 +1,13 @@
 public final static String e = "2.718281828459045235360287471352662497757247093699959574966967627724076630353547594571382178525166427427466391932003059";  
-public void setup(){
-  System.out.println(something());
-}
-double something(){
-  double knum = 1;
-    for(int m = 2; m < 110; m++){
-      if(isPrime(m) == true){
-        String digits = e.substring(m,m+10);
-        double dNum = Double.parseDouble(digits);
+public void setup()
+{
+  for(int digits = 2; digits < e.length()-10; digits++){
+    double dNum = Double.parseDouble(e.substring(digits, digits+10));
+      if(isPrime(digits) == true){
+        System.out.println(dNum);
+        break;
     }
   }
-  System.out.println(dNum);
 }  
 public void draw()  
 {   
@@ -18,13 +15,9 @@ public void draw()
 }  
 public boolean isPrime(double num){
   boolean myNum = false;
-   if(num>=2){
-      myNum=true;
-   }
+   if(num>=2){myNum=true;}
   for(int i=2; i<= Math.sqrt(num); i++){
-    if(num%i==0){
-      myNum=false;
-    }
+    if(num%i==0){myNum=false;}
   }
  return myNum;
 }
